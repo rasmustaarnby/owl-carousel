@@ -76,7 +76,7 @@ class Owl_Widget extends \WP_Widget {
 				echo $before_title . $title . $after_title;
 			}
 
-			echo owl_function( array( 'category' => $instance['category'], 'singleItem' => 'true', 'autoPlay' => 'true', 'pagination' => 'true' ) );
+			echo owl_function( array( 'category' => $instance['category'], 'items' => '1', 'autoPlay' => 'true', 'dots' => 'true', 'loop' => true, 'autoplay' => true, 'autoplaySpeed' => 800 ) );
 
 		echo $after_widget;
 

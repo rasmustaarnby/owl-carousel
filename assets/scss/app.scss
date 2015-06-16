@@ -51,7 +51,8 @@
 	.owl-controls{
 		margin-top: 0;
 
-		.owl-pagination{
+		.owl-pagination,
+		.owl-dots {
 			text-align: center;
 			margin-top: 10px;
 			position: absolute;
@@ -59,7 +60,8 @@
 			left: 50%;
 			width: 100%;
 
-		    .owl-page{
+		    .owl-page,
+			.owl-dot {
 				display: inline-block;
 				position: relative;
 				left: -50%;
