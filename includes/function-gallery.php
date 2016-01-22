@@ -44,7 +44,7 @@ function owl_carousel_post_gallery( $output, $attr ) {
     $fullscreen = get_option( 'owl_carousel_fullscreen', false );
 
     // Start the output
-    $output .= '<div id="owl-carousel-' . rand() . '" class="owl-carousel-plugin ' . ( ( $fullscreen ) ? 'fullscreen' : '' ) . '" ' . $data_attr . '>';
+    $output .= '<div id="owl-carousel-' . rand() . '" class="owl-carousel-plugin inline-gallery ' . ( ( $fullscreen ) ? 'fullscreen' : '' ) . '" ' . $data_attr . '>';
 
     foreach ( $attachments as $id => $attachment ) {
 

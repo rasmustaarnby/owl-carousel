@@ -57,6 +57,19 @@
 	    }
 	}
 
+	&.inline-gallery {
+		.item {
+			.image {
+				background-size: contain !important;
+				background-repeat: no-repeat;
+
+				@media only screen and (min-width: 40.063em) {
+					padding-top: 0 !important;
+				}
+			}
+		}
+	}
+
 	.owl-nav {
 		position: absolute;
 		top: 45%;
