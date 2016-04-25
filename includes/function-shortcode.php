@@ -102,8 +102,15 @@ function owl_function( $atts, $content = null ) {
 			$slide_content  = wpautop( get_the_content() );
 
 			$img_overlay  = '<div class="owl-item-overlay">';
-			$img_overlay  .= '<div class="owl-item-title">' . apply_filters( 'owl_carousel_img_overlay_title', $slide_title ) . '</div>';
-			$img_overlay  .= '<div class="owl-item-content">' . apply_filters( 'owl_carousel_img_overlay_content', $slide_content, get_the_ID() ) . '</div>';
+
+            if ( ! empty( $slide_title ) ) {
+                $img_overlay  .= '<div class="owl-item-title">' . apply_filters( 'owl_carousel_img_overlay_title', $slide_title ) . '</div>';
+            }
+
+            if ( ! empty( $slide_content ) ) {
+                $img_overlay  .= '<div class="owl-item-content">' . apply_filters( 'owl_carousel_img_overlay_content', $slide_content, get_the_ID() ) . '</div>';
+            }
+
 			$img_overlay  .= '</div>';
 
 			// owlcarousel_img_overlay filter
