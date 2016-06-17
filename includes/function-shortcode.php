@@ -117,7 +117,7 @@ function owl_function( $atts, $content = null ) {
 	}
 	$result .= '</div>';
 
-    wp_reset_postdata();
+	wp_reset_postdata();
 
 	return $result;
 }
