@@ -27,6 +27,7 @@ class Owl_Widget extends \WP_Widget {
 		$this->add_field( 'title', 'Enter title' );
 		$this->add_field( 'category', 'Enter category', '', '', 'select-cat' );
 		$this->add_field( 'items', 'Enter number of items', '', $options, 'number' );
+		$this->add_field( 'autoplay', 'Autoplay the items', '', '', 'autoplay' );
 
 		// Init the widget
 		parent::__construct(
@@ -58,7 +59,8 @@ class Owl_Widget extends \WP_Widget {
 			/* Widget output here */
 			echo owl_function( array(
 				'category' => get_term_by( 'id', $instance['category'], 'Carousel' ),
-				'items' => $instance['items']
+				'items' => $instance['items'],
+				'autoplay' => $instance['autoplay'],
 			) );
 
 		/* After widget */
@@ -129,7 +131,12 @@ class Owl_Widget extends \WP_Widget {
 					<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( $field_name ) ); ?>" name="<?php echo $this->get_field_name( $field_name ); ?>" type="number" step="<?php echo esc_attr( $field_data['options']['step'] ); ?>" min="<?php echo esc_attr( $field_data['options']['min'] ); ?>" max="<?php echo esc_attr( $field_data['options']['max'] ); ?>" value="<?php echo esc_attr( $value ); ?>" />
 				</p>
 			<?php
-			else:
+			elseif( $field_data['type'] == 'autoplay' ) : ?>
+				<p>
+					<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( $field_name ) ); ?>" name="<?php echo $this->get_field_name( $field_name ); ?>" type="checkbox"  value="1" <?php checked( $value, 1 ); ?>/><label for="<?php echo $this->get_field_id( $field_name ); ?>"><?php _e( $field_data['description'], Main::TEXT_DOMAIN ); ?></label>
+				</p>
+			<?php
+			else :
 				echo __( 'Error - Field type not supported', Main::TEXT_DOMAIN ) . ': ' . $field_data['type'];
 			endif;
 		}
@@ -186,6 +193,7 @@ class Owl_Widget extends \WP_Widget {
 		$instance['title'] = strip_tags( $new_instance['title'] );
 		$instance['category'] = strip_tags( $new_instance['category'] );
 		$instance['items'] = strip_tags( $new_instance['items'] );
+		$instance['autoplay'] = $new_instance['autoplay'] ? 1 : false;
 
 		return $instance;
 	}
