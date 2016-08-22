@@ -117,10 +117,10 @@ class Admin {
 	 */
 	public function enqueue_v2() {
 		// Vendor
-		wp_enqueue_script( 'owl-carousel-js', $this->plugin->plugin_url . 'assets/vendor/owl-carousel-2.0.0-beta.2.4.4/owl.carousel.min.js', array( 'jquery' ) );
+		wp_enqueue_script( 'owl-carousel-js', $this->plugin->plugin_url . 'assets/vendor/owl-carousel-2.0.0-beta.2.4.4/owl.carousel.min.js', 'jquery', null, true );
 
 		// Compiled
-		wp_enqueue_script( 'owl-carousel-js-script', $this->plugin->plugin_url . 'assets/js/scripts.min.js' );
+		wp_enqueue_script( 'owl-carousel-js-script', $this->plugin->plugin_url . 'assets/js/scripts.min.js', 'owl-carousel-js', null, true );
 
 		// Vendor
 		wp_enqueue_style( 'owl-carousel-style', $this->plugin->plugin_url . 'assets/vendor/owl-carousel-2.0.0-beta.2.4.4/assets/owl.carousel.css' );
